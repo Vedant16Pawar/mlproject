@@ -1,0 +1,28 @@
+from setuptools import find_packages,setup
+from typing import List
+
+HYPHEN_E_DOT='-e .'
+def get_requirements(file_path:str)->List[str]:
+    '''
+    this function will return the list of requirements
+    '''
+    requirements=[]
+    with open(file_path) as file_obj:
+        requirements=file_obj.readlines()
+        requirements=[req.replace("\n","") for req in requirements]#In requirements.txt--> next line
+        # means \n which is added in the list ,so it is replaced by "".
+        
+        if HYPHEN_E_DOT in requirements:
+            requirements.remove(HYPHEN_E_DOT)
+    return requirements
+
+setup(
+name='mlproject',
+version='0.0.1',
+author='Vedant',
+author_email='vedant16pawar@gmail.com',
+packages=find_packages(),
+install_requires=get_requirements('requirements.txt')
+
+
+)

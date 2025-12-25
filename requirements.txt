@@ -1,0 +1,6 @@
+pandas 
+numpy
+seaborn
+  
+
+# "-e ."---> connects to setup.py file 
